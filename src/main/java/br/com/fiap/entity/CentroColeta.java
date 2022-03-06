@@ -60,11 +60,6 @@ public class CentroColeta {
 	
 	// Getters and Setters 
 	
-	
-		
-
-
-
 
 	public int getIdCentroCol() {
 		return idCentroCol;
@@ -114,5 +109,11 @@ public class CentroColeta {
 		this.doacoesCentro = doacoesCentro;
 	}
 
+	@Override
+	public String toString() {
+		return "CentroColeta [idCentroCol=" + idCentroCol + ", nmCentroCol=" + nmCentroCol + ", cnpj=" + cnpj
+				+ ", enderecoCentroCol=" + enderecoCentroCol + ", cepCentroCol=" + cepCentroCol + ", telefoneCentroCol="
+				+ telefoneCentroCol + ", doacoesCentro=" + doacoesCentro + "]";
+	}
 
 }

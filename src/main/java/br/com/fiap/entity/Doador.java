@@ -12,65 +12,62 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="TB_DOADOR")
+@Table(name = "TB_DOADOR")
 public class Doador {
-	
+
 	@Id
-	@Column(name="id_doador")
-	@SequenceGenerator(name="doador", sequenceName="sq_tb_doador", allocationSize=1)
-	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="doador")
+	@Column(name = "id_doador")
+	@SequenceGenerator(name = "doador", sequenceName = "sq_tb_doador", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "doador")
 	private int idDoador;
-	
-	@Column(name="nm_doador")
+
+	@Column(name = "nm_doador")
 	private String nmDoador;
-	
-	@Column(name="email_doador")
+
+	@Column(name = "email_doador")
 	private String emailDoador;
-	
-	@Column(name="telefone_doador")
+
+	@Column(name = "telefone_doador")
 	private String telefoneDoador;
 
-	@Column(name="endereco_doador")
+	@Column(name = "endereco_doador")
 	private String enderecoDoador;
-	
-	@Column(name="cep_doador")
+
+	@Column(name = "cep_doador")
 	private String cepDoador;
-	
-	@Column(name="peso")
+
+	@Column(name = "peso")
 	private String peso;
 
 	private String altura;
 
 	private String cpf;
-	
-	@Column(name="dt_nascimento")
+
+	@Column(name = "dt_nascimento")
 	private Calendar dtNascimento;
-	
-	@Column(name="estado_civil")
+
+	@Column(name = "estado_civil")
 	private String estadoCivil;
-	
-	@Column(name="fator_RH")
+
+	@Column(name = "fator_RH")
 	private String fatorRh;
-	
-	@Column(name="tp_sanguineo")
+
+	@Column(name = "tp_sanguineo")
 	private String tpSanguineo;
-	
+
 	// Relação
-	
-	@OneToMany(mappedBy = "doadores")  
+
+	@OneToMany(mappedBy = "doadores")
 	private List<Doacao> doacoesDoador;
-	
-    
 
+	// Construtores
+	public Doador() {
+	}
 
-	// Construtores 
-	public Doador() {}
-	
 	public Doador(int idDoador, String nmDoador, String emailDoador, String telefoneDoador, String enderecoDoador,
 			String cepDoador, String peso, String altura, String cpf, Calendar dtNascimento, String estadoCivil,
-			String fatorRh, String tpSanguineo) {
+			String fatorRh, String tpSanguineo, List<Doacao> doacoesDoador) {
 		super();
 		this.idDoador = idDoador;
 		this.nmDoador = nmDoador;
@@ -85,15 +82,15 @@ public class Doador {
 		this.estadoCivil = estadoCivil;
 		this.fatorRh = fatorRh;
 		this.tpSanguineo = tpSanguineo;
+		this.doacoesDoador = doacoesDoador;
 	}
-	
-	// Getters and Setters 
+
+	// Getters and Setters
 
 	public int getIdDoador() {
 		return idDoador;
 	}
 
-	
 	public void setIdDoador(int idDoador) {
 		this.idDoador = idDoador;
 	}
@@ -193,7 +190,7 @@ public class Doador {
 	public void setTpSanguineo(String tpSanguineo) {
 		this.tpSanguineo = tpSanguineo;
 	}
-	
+
 	public List<Doacao> getDoacoesDoador() {
 		return doacoesDoador;
 	}
@@ -201,7 +198,14 @@ public class Doador {
 	public void setDoacoesDoador(List<Doacao> doacoesDoador) {
 		this.doacoesDoador = doacoesDoador;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Doador [idDoador=" + idDoador + ", nmDoador=" + nmDoador + ", emailDoador=" + emailDoador
+				+ ", telefoneDoador=" + telefoneDoador + ", enderecoDoador=" + enderecoDoador + ", cepDoador="
+				+ cepDoador + ", peso=" + peso + ", altura=" + altura + ", cpf=" + cpf + ", dtNascimento="
+				+ dtNascimento + ", estadoCivil=" + estadoCivil + ", fatorRh=" + fatorRh + ", tpSanguineo="
+				+ tpSanguineo + ", doacoesDoador=" + doacoesDoador + "]";
+	}
+
 }
-
-
