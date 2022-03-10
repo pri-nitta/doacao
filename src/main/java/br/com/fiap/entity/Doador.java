@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "TB_DOADOR")
@@ -22,38 +24,44 @@ public class Doador {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "doador")
 	private int idDoador;
 
-	@Column(name = "nm_doador")
+	@Column(name = "nm_doador", nullable = false, length = 50)
 	private String nmDoador;
 
-	@Column(name = "email_doador")
+	@Column(name = "email_doador", nullable = false, length = 80)
 	private String emailDoador;
 
-	@Column(name = "telefone_doador")
+	@Column(name = "senha", nullable = false, length = 30)
+	private String senha;
+
+	@Column(name = "telefone_doador", nullable = false, length = 15)
 	private String telefoneDoador;
 
-	@Column(name = "endereco_doador")
+	@Column(name = "endereco_doador", nullable = false, length = 80)
 	private String enderecoDoador;
 
-	@Column(name = "cep_doador")
-	private String cepDoador;
+	@Column(name = "cep_doador", nullable = false, length = 8)
+	private char cepDoador;
 
-	@Column(name = "peso")
-	private String peso;
+	@Column(name = "peso", nullable = false)
+	private float peso;
 
-	private String altura;
+	@Column(name = "altura", nullable = false)
+	private float altura;
 
+	@Column(name = "cpf", nullable = false, length = 14)
 	private String cpf;
 
-	@Column(name = "dt_nascimento")
+	@Temporal(TemporalType.DATE)
+	@Column(name = "dt_nascimento", nullable = false)
 	private Calendar dtNascimento;
 
-	@Column(name = "estado_civil")
+	@Column(name = "estado_civil", length = 8)
 	private String estadoCivil;
 
-	@Column(name = "fator_RH")
+	@Column(name = "fator_rh", nullable = false, length = 8)
 	private String fatorRh;
 
-	@Column(name = "tp_sanguineo")
+	@Column(name = "tp_sanguineo", nullable = false, length = 3)
 	private String tpSanguineo;
 
 	// Relação
@@ -65,13 +73,14 @@ public class Doador {
 	public Doador() {
 	}
 
-	public Doador(int idDoador, String nmDoador, String emailDoador, String telefoneDoador, String enderecoDoador,
-			String cepDoador, String peso, String altura, String cpf, Calendar dtNascimento, String estadoCivil,
-			String fatorRh, String tpSanguineo, List<Doacao> doacoesDoador) {
+	public Doador(int idDoador, String nmDoador, String emailDoador, String senha, String telefoneDoador,
+			String enderecoDoador, char cepDoador, float peso, float altura, String cpf, Calendar dtNascimento,
+			String estadoCivil, String fatorRh, String tpSanguineo, List<Doacao> doacoesDoador) {
 		super();
 		this.idDoador = idDoador;
 		this.nmDoador = nmDoador;
 		this.emailDoador = emailDoador;
+		this.senha = senha;
 		this.telefoneDoador = telefoneDoador;
 		this.enderecoDoador = enderecoDoador;
 		this.cepDoador = cepDoador;
@@ -127,28 +136,36 @@ public class Doador {
 		this.enderecoDoador = enderecoDoador;
 	}
 
-	public String getCepDoador() {
-		return cepDoador;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setCepDoador(String cepDoador) {
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setCepDoador(char cepDoador) {
 		this.cepDoador = cepDoador;
 	}
 
-	public String getPeso() {
-		return peso;
-	}
-
-	public void setPeso(String peso) {
+	public void setPeso(float peso) {
 		this.peso = peso;
 	}
 
-	public String getAltura() {
-		return altura;
+	public void setAltura(float altura) {
+		this.altura = altura;
 	}
 
-	public void setAltura(String altura) {
-		this.altura = altura;
+	public char getCepDoador() {
+		return cepDoador;
+	}
+
+	public float getPeso() {
+		return peso;
+	}
+
+	public float getAltura() {
+		return altura;
 	}
 
 	public String getCpf() {
