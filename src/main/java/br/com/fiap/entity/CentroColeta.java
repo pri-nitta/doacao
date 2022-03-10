@@ -21,18 +21,19 @@ public class CentroColeta {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="centro_col")
 	private int idCentroCol;
 	
-	@Column(name="nm_centro_col")
+	@Column(name="nm_centro_col", nullable=false)
 	private String nmCentroCol;
 	
+	@Column(name="cnpj", nullable=false)
 	private String cnpj;
 	
-	@Column(name="endereco_centro_col")
+	@Column(name="endereco_centro_col", nullable=false)
 	private String enderecoCentroCol; 
 	
-	@Column(name="cep_centro_col")
+	@Column(name="cep_centro_col", nullable=false)
 	private String cepCentroCol;
 	
-	@Column(name="telefone_centro_col")
+	@Column(name="telefone_centro_col", nullable=false)
 	private String telefoneCentroCol;
 
 	// relacao 
@@ -56,11 +57,9 @@ public class CentroColeta {
 		this.telefoneCentroCol = telefoneCentroCol;
 		this.doacoesCentro = doacoesCentro;
 	}
-	
-	
+
 	// Getters and Setters 
 	
-
 	public int getIdCentroCol() {
 		return idCentroCol;
 	}
