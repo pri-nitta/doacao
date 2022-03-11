@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.fiap.testes.GregorianCalendar;
+
 @Entity
 @Table(name = "TB_DOADOR")
 public class Doador {
@@ -40,7 +42,7 @@ public class Doador {
 	private String enderecoDoador;
 
 	@Column(name = "cep_doador", nullable = false, length = 8)
-	private char cepDoador;
+	private String cepDoador;
 
 	@Column(name = "peso", nullable = false)
 	private float peso;
@@ -74,7 +76,7 @@ public class Doador {
 	}
 
 	public Doador(int idDoador, String nmDoador, String emailDoador, String senha, String telefoneDoador,
-			String enderecoDoador, char cepDoador, float peso, float altura, String cpf, Calendar dtNascimento,
+			String enderecoDoador, String cepDoador, float peso, float altura, String cpf, Calendar dtNascimento,
 			String estadoCivil, String fatorRh, String tpSanguineo, List<Doacao> doacoesDoador) {
 		super();
 		this.idDoador = idDoador;
@@ -144,7 +146,7 @@ public class Doador {
 		this.senha = senha;
 	}
 
-	public void setCepDoador(char cepDoador) {
+	public void setCepDoador(String cepDoador) {
 		this.cepDoador = cepDoador;
 	}
 
@@ -156,7 +158,7 @@ public class Doador {
 		this.altura = altura;
 	}
 
-	public char getCepDoador() {
+	public String getCepDoador() {
 		return cepDoador;
 	}
 

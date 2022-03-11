@@ -56,23 +56,23 @@ public class TestesCentroColeta {
 //
 			// ====================================--Read--=======================================
 	
-			try {
-	
-				int idCentroCol = 5;
-	
-				em = Persistence.createEntityManagerFactory("doacao").createEntityManager();
-				CentroColeta centroColeta = em.find(CentroColeta.class, idCentroCol);
-				
-				
-				System.out.println(centroColeta.toString());
-	
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (em != null) {
-					em.close();
-				}
-			}
+//			try {
+//	
+//				int idCentroCol = 5;
+//	
+//				em = Persistence.createEntityManagerFactory("doacao").createEntityManager();
+//				CentroColeta centroColeta = em.find(CentroColeta.class, idCentroCol);
+//				
+//				
+//				System.out.println(centroColeta.toString());
+//	
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			} finally {
+//				if (em != null) {
+//					em.close();
+//				}
+//			}
 
 		// ====================================--Update--=======================================
 
